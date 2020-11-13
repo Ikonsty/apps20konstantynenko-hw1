@@ -92,12 +92,12 @@ public class TemperatureSeriesAnalysis {
         while (l <= h)
         {
             int mid = l + (h - l) / 2;
-            if(Math.abs(tempValue - this.temperature[mid]) < diff)
+            if (Math.abs(tempValue - this.temperature[mid]) < diff)
             {
                 diff = Math.abs(tempValue - this.temperature[mid]);
                 val = this.temperature[mid];
             }
-            if(this.temperature[mid] < tempValue) {
+            if (this.temperature[mid] < tempValue) {
                 l = mid + 1;
             }
             else {
@@ -147,7 +147,7 @@ public class TemperatureSeriesAnalysis {
         return new TempSummaryStatistics(average(), deviation(), min(), max());
     }
 
-    public void createLargerArray(){
+    public void createLargerArray() {
         double[] tempArr = new double[this.actualLen * 2];
         for (int i = 0; i < this.len; i++) {
             tempArr[i] = this.temperature[i];

@@ -1,4 +1,4 @@
-package dynamList;
+package dynamic;
 
 public class DynamicList {
     private int len = 0;

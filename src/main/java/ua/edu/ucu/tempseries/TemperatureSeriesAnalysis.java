@@ -31,27 +31,27 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double average() {
-        if(this.len == 0) {
+        if (this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
         return this.sum/this.len;
     }
 
     public double deviation() {
-        if(this.len == 0) {
+        if (this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
 
         double standardDeviation = 0.0;
         double mean = this.average();
-        for(double num: this.temperature) {
+        for (double num: this.temperature) {
             standardDeviation += Math.pow(num - mean, 2);
         }
         return Math.sqrt(standardDeviation/this.len);
     }
 
     public double min() {
-        if(this.len == 0) {
+        if (this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
 
@@ -59,7 +59,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double max() {
-        if(this.len == 0) {
+        if (this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
 
@@ -67,7 +67,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToZero() {
-        if(this.len == 0) {
+        if (this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
 
@@ -75,21 +75,21 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToValue(double tempValue) {
-        if(this.len == 0) {
+        if (this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
 
-        if(tempValue < this.temperature[0]) {
+        if (tempValue < this.temperature[0]) {
             return this.temperature[0];
         }
-        if(tempValue > this.temperature[this.len - 1]) {
+        if (tempValue > this.temperature[this.len - 1]) {
             return this.temperature[this.len - 1];
         }
 
         int l = 0;
         int h = this.len;
         double diff = Integer.MAX_VALUE, val = this.temperature[0];
-        while(l <= h)
+        while (l <= h)
         {
             int mid = l + (h - l) / 2;
             if(Math.abs(tempValue - this.temperature[mid]) < diff)
@@ -109,18 +109,18 @@ public class TemperatureSeriesAnalysis {
 
     public double[] convert(DynamicList lst) {
         double[] result = new double[lst.getLen()];
-        for(int i = 0; i < lst.getLen(); i++) {
+        for (int i = 0; i < lst.getLen(); i++) {
             result[i] = lst.getVal(i);
         }
         return result;
     }
 
     public double[] findTempsLessThen(double tempValue) {
-        if(this.len == 0) {
+        if (this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
         DynamicList lessNumbers = new DynamicList();
-        for(int i = 0; i < this.len && this.temperature[i] < tempValue; i++) {
+        for (int i = 0; i < this.len && this.temperature[i] < tempValue; i++) {
             lessNumbers.addNew(this.temperature[i]);
         }
 
@@ -128,11 +128,11 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double[] findTempsGreaterThen(double tempValue) {
-        if(this.len == 0) {
+        if (this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
         DynamicList moreNumbers = new DynamicList();
-        for(int i = this.len; i > 0 && this.temperature[i] > tempValue; i--) {
+        for (int i = this.len; i > 0 && this.temperature[i] > tempValue; i--) {
             moreNumbers.addNew(this.temperature[i]);
         }
 
@@ -140,7 +140,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TempSummaryStatistics summaryStatistics() {
-        if(this.len == 0) {
+        if (this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
 
@@ -149,7 +149,7 @@ public class TemperatureSeriesAnalysis {
 
     public void createLargerArray(){
         double[] tempArr = new double[this.actualLen * 2];
-        for(int i = 0; i < this.len; i++) {
+        for (int i = 0; i < this.len; i++) {
             tempArr[i] = this.temperature[i];
         }
         this.actualLen *= 2;

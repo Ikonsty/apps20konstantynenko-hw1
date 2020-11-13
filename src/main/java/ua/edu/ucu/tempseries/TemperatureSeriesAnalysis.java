@@ -31,14 +31,14 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double average() {
-        if(this.len == 0){
+        if(this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
         return this.sum/this.len;
     }
 
     public double deviation() {
-        if(this.len == 0){
+        if(this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
 
@@ -51,7 +51,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double min() {
-        if(this.len == 0){
+        if(this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
 
@@ -59,7 +59,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double max() {
-        if(this.len == 0){
+        if(this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
 
@@ -67,7 +67,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToZero() {
-        if(this.len == 0){
+        if(this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
 
@@ -75,14 +75,14 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToValue(double tempValue) {
-        if(this.len == 0){
+        if(this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
 
-        if(tempValue < this.temperature[0]){
+        if(tempValue < this.temperature[0]) {
             return this.temperature[0];
         }
-        if(tempValue > this.temperature[this.len - 1]){
+        if(tempValue > this.temperature[this.len - 1]) {
             return this.temperature[this.len - 1];
         }
 
@@ -105,20 +105,20 @@ public class TemperatureSeriesAnalysis {
         return val;
     }
 
-    public double[] convert(DynamicList lst){
+    public double[] convert(DynamicList lst) {
         double[] result = new double[lst.getLen()];
-        for(int i = 0; i < lst.getLen(); i++){
+        for(int i = 0; i < lst.getLen(); i++) {
             result[i] = lst.getVal(i);
         }
         return result;
     }
 
     public double[] findTempsLessThen(double tempValue) {
-        if(this.len == 0){
+        if(this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
         DynamicList lessNumbers = new DynamicList();
-        for(int i = 0; i < this.len && this.temperature[i] < tempValue; i++){
+        for(int i = 0; i < this.len && this.temperature[i] < tempValue; i++) {
             lessNumbers.addNew(this.temperature[i]);
         }
 
@@ -126,11 +126,11 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double[] findTempsGreaterThen(double tempValue) {
-        if(this.len == 0){
+        if(this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
         DynamicList moreNumbers = new DynamicList();
-        for(int i = this.len; i > 0 && this.temperature[i] > tempValue; i--){
+        for(int i = this.len; i > 0 && this.temperature[i] > tempValue; i--) {
             moreNumbers.addNew(this.temperature[i]);
         }
 
@@ -138,7 +138,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TempSummaryStatistics summaryStatistics() {
-        if(this.len == 0){
+        if(this.len == 0) {
             throw new IllegalArgumentException("Temperature series is empty");
         }
 
@@ -147,7 +147,7 @@ public class TemperatureSeriesAnalysis {
 
     public void createLargerArray(){
         double[] tempArr = new double[this.actualLen * 2];
-        for(int i = 0; i < this.len; i++){
+        for(int i = 0; i < this.len; i++) {
             tempArr[i] = this.temperature[i];
         }
         this.actualLen *= 2;
@@ -155,7 +155,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public int addTemps(double... temps) {
-        while (temps.length > this.actualLen - this.len){
+        while (temps.length > this.actualLen - this.len) {
             createLargerArray();
         }
         this.len += temps.length;

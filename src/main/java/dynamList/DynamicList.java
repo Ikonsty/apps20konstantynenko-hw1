@@ -5,12 +5,12 @@ public class DynamicList {
     private int actualLen = 1;
     private double[] lst;
 
-    public DynamicList(){
+    public DynamicList() {
         this.lst = new double[1];
     }
 
-    public void addNew(double el){
-        if (this.len + 1 >= this.actualLen){
+    public void addNew(double el) {
+        if (this.len + 1 >= this.actualLen) {
             doubleArr();
         }
         else {
@@ -19,7 +19,7 @@ public class DynamicList {
         this.len += 1;
     }
 
-    public void doubleArr(){
+    public void doubleArr() {
         double[] result = new double[actualLen * 2];
         for (int n = 0; n < this.len; n++) {
             result[n] = this.lst[n];

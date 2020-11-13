@@ -44,7 +44,7 @@ public class TemperatureSeriesAnalysis {
 
         double standardDeviation = 0.0;
         double mean = this.average();
-        for(double num: this.temperature) { //for num in temperature
+        for(double num: this.temperature) {
             standardDeviation += Math.pow(num - mean, 2);
         }
         return Math.sqrt(standardDeviation/this.len);

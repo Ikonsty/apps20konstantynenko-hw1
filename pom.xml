@@ -17,12 +17,12 @@
         <checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
     </properties>
 
-    <modules>
-        <module name="MagicNumber">
-            <property name="constantWaiverParentToken" value="ASSIGN,ARRAY_INIT,EXPR,
-            UNARY_PLUS, UNARY_MINUS, TYPECAST, ELIST, DIV, PLUS "/>
-        </module>
-    </modules>
+<!--    <modules>-->
+<!--        <module name="MagicNumber">-->
+<!--            <property name="constantWaiverParentToken" value="ASSIGN,ARRAY_INIT,EXPR,-->
+<!--            UNARY_PLUS, UNARY_MINUS, TYPECAST, ELIST, DIV, PLUS "/>-->
+<!--        </module>-->
+<!--    </modules>-->
 
 
     <dependencies>

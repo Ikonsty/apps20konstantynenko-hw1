@@ -1,6 +1,6 @@
 package ua.edu.ucu.tempseries;
 
-import dynamList.DynamList;
+import dynamList.DynamicList;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -14,7 +14,7 @@ public class TemperatureSeriesAnalysis {
     public TemperatureSeriesAnalysis() {
         this.temperature = new double[1];
         this.len = 0;
-        this.actualLen = 0;
+        this.actualLen = 1;
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
@@ -105,7 +105,7 @@ public class TemperatureSeriesAnalysis {
         return val;
     }
 
-    public double[] convert(DynamList lst){
+    public double[] convert(DynamicList lst){
         double[] result = new double[lst.getLen()];
         for(int i = 0; i < lst.getLen(); i++){
             result[i] = lst.getVal(i);
@@ -117,7 +117,7 @@ public class TemperatureSeriesAnalysis {
         if(this.len == 0){
             throw new IllegalArgumentException("Temperature series is empty");
         }
-        DynamList lessNumbers = new DynamList();
+        DynamicList lessNumbers = new DynamicList();
         for(int i = 0; i < this.len && this.temperature[i] < tempValue; i++){
             lessNumbers.addNew(this.temperature[i]);
         }
@@ -129,7 +129,7 @@ public class TemperatureSeriesAnalysis {
         if(this.len == 0){
             throw new IllegalArgumentException("Temperature series is empty");
         }
-        DynamList moreNumbers = new DynamList();
+        DynamicList moreNumbers = new DynamicList();
         for(int i = this.len; i > 0 && this.temperature[i] > tempValue; i--){
             moreNumbers.addNew(this.temperature[i]);
         }

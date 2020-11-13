@@ -1,12 +1,12 @@
 package dynamList;
 
-public class DynamList {
+public class DynamicList {
     private int len = 0;
-    private int actualLen = 0;
+    private int actualLen = 1;
     private double[] lst;
 
-    public DynamList(){
-
+    public DynamicList(){
+        this.lst = new double[1];
     }
 
     public void addNew(double el){

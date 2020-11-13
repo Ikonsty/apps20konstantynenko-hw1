@@ -97,10 +97,12 @@ public class TemperatureSeriesAnalysis {
                 diff = Math.abs(tempValue - this.temperature[mid]);
                 val = this.temperature[mid];
             }
-            if(this.temperature[mid] < tempValue)
+            if(this.temperature[mid] < tempValue) {
                 l = mid + 1;
-            else
+            }
+            else {
                 h = mid - 1;
+            }
         }
         return val;
     }
